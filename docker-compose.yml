@@ -1,0 +1,15 @@
+version: "3"
+services:
+
+  tshirt-service:
+    build: .
+    links:
+    - "backend:mysql"
+    ports:
+      - 80:8888
+
+  backend:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tshirt

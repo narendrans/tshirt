@@ -1,0 +1,101 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mulesoft.org/tshirt-service" targetNamespace="http://mulesoft.org/tshirt-service" version="1.0">
+
+  <xs:element name="APIUsageInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="apiCallsRemaining" type="xs:integer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AuthenticationHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="apiKey" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListInventory">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListInventoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="inventory" type="tns:InventoryItem"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="OrderTshirt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="size" type="tns:Size"/>
+        <xs:element name="email" type="xs:string"/>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="address1" type="xs:string"/>
+        <xs:element name="address2" type="xs:string"/>
+        <xs:element name="city" type="xs:string"/>
+        <xs:element name="stateOrProvince" type="xs:string"/>
+        <xs:element name="postalCode" type="xs:string"/>
+        <xs:element name="country" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="OrderTshirtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="orderId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TrackOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="email" type="xs:string"/>
+        <xs:element name="orderId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TrackOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="orderId" type="xs:string"/>
+        <xs:element name="size" type="tns:Size"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TshirtFault">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="errorMessage" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="InventoryItem">
+    <xs:sequence>
+      <xs:element name="productCode" type="xs:string"/>
+      <xs:element name="size" type="tns:Size"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="count" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="Size">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="S"/>
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="L"/>
+      <xs:enumeration value="XL"/>
+      <xs:enumeration value="XXL"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

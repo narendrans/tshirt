@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="06108b68-b8fc-4bf1-904c-23462673b60d" activeEnvironment="Default" name="tshirt-service-local" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TshirtPortSoap11 TestSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="75608849-bc27-4a57-aac3-8be32d68eddc" wsaVersion="NONE" name="TshirtPortSoap11" type="wsdl" bindingName="{http://mulesoft.org/tshirt-service}TshirtPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost/ws/tshirt.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost/ws/tshirt.wsdl"><con:part><con:url>http://localhost/ws/tshirt.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://mulesoft.org/tshirt-service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://mulesoft.org/tshirt-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mulesoft.org/tshirt-service">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://mulesoft.org/tshirt-service" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="APIUsageInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="apiCallsRemaining" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuthenticationHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="apiKey" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListInventory">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListInventoryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="inventory" type="tns:InventoryItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrderTshirt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="size" type="tns:Size"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="address1" type="xs:string"/>
+            <xs:element name="address2" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="stateOrProvince" type="xs:string"/>
+            <xs:element name="postalCode" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrderTshirtResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="orderId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TrackOrder">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="orderId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TrackOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="orderId" type="xs:string"/>
+            <xs:element name="size" type="tns:Size"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TshirtFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="errorMessage" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="InventoryItem">
+        <xs:sequence>
+          <xs:element name="productCode" type="xs:string"/>
+          <xs:element name="size" type="tns:Size"/>
+          <xs:element name="description" type="xs:string"/>
+          <xs:element name="count" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Size">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="S"/>
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="L"/>
+          <xs:enumeration value="XL"/>
+          <xs:enumeration value="XXL"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TshirtFault">
+    <wsdl:part element="tns:TshirtFault" name="TshirtFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OrderTshirtResponse">
+    <wsdl:part element="tns:OrderTshirtResponse" name="OrderTshirtResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ListInventoryResponse">
+    <wsdl:part element="tns:ListInventoryResponse" name="ListInventoryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TrackOrderResponse">
+    <wsdl:part element="tns:TrackOrderResponse" name="TrackOrderResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TshirtPort">
+    <wsdl:operation name="Tshirt">
+      <wsdl:fault message="tns:TshirtFault" name="TshirtFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OrderTshirt">
+      <wsdl:output message="tns:OrderTshirtResponse" name="OrderTshirtResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListInventory">
+      <wsdl:output message="tns:ListInventoryResponse" name="ListInventoryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackOrder">
+      <wsdl:output message="tns:TrackOrderResponse" name="TrackOrderResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TshirtPortSoap11" type="tns:TshirtPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Tshirt">
+      <soap:operation soapAction=""/>
+      <wsdl:fault name="TshirtFault">
+        <soap:fault name="TshirtFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OrderTshirt">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="OrderTshirtResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListInventory">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="ListInventoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackOrder">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="TrackOrderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TshirtPortService">
+    <wsdl:port binding="tns:TshirtPortSoap11" name="TshirtPortSoap11">
+      <soap:address location="http://localhost:80/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://TUX:8088/mockTshirtPortSoap11</con:endpoint><con:endpoint>http://localhost:80/ws</con:endpoint><con:endpoint>http://localhost:8888/ws</con:endpoint></con:endpoints><con:operation id="75dc744f-73ee-4c33-b4c6-4366d94b485d" isOneWay="false" action="" name="ListInventory" bindingOperationName="ListInventory" type="Notification" outputName="ListInventoryResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="3407d427-698a-40e7-82a9-9db352a46d01" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:80/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tsh="http://mulesoft.org/tshirt-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tsh:ListInventory>\r
+      </tsh:ListInventory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3f12bcf4-79c7-4b26-bae9-6933e33f3fde" isOneWay="false" action="" name="OrderTshirt" bindingOperationName="OrderTshirt" type="Notification" outputName="OrderTshirtResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="4df470ff-0a00-483e-9226-a52307443345" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:80/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tsh="http://mulesoft.org/tshirt-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tsh:OrderTshirt>
+         <size>L</size>
+         <email>lasdasld@adasdd.com</email>
+         <name>asdasd</name>
+         <address1>sdfd</address1>
+         <address2>sdf</address2>
+         <city>lasld</city>
+         <stateOrProvince>asd</stateOrProvince>
+         <postalCode>10101</postalCode>
+         <country>asd</country>
+      </tsh:OrderTshirt>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d5dc3f69-b42e-4d8d-88f4-ed618a5dc256" isOneWay="false" action="" name="TrackOrder" bindingOperationName="TrackOrder" type="Notification" outputName="TrackOrderResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="00a51dcc-11ec-48d0-82e2-7d712d5bada5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:80/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tsh="http://mulesoft.org/tshirt-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tsh:TrackOrder>
+         <email>lasldasld@adasdd.com</email>
+         <orderId>1001</orderId>
+      </tsh:TrackOrder>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9e1b2dc4-4e3f-4577-be24-ee52ea04267c" isOneWay="false" action="" name="Tshirt" bindingOperationName="Tshirt" inputName="" anonymous="optional" type="Request-Response"><con:settings/><con:call id="a3a666f0-27be-4331-88f0-8e7aea97c7c1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:80/ws</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   &lt;soapenv:Body/>\r
+&lt;/soapenv:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

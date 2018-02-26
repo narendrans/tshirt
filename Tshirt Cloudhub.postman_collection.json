@@ -1,0 +1,104 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Tshirt Cloudhub",
+		"_postman_id": "e410779b-dfe1-e3d3-2772-eec528c90827",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://tshirt.cloudhub.io/inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://tshirt.cloudhub.io/inventory",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n  \"email\": \"info@mulesoft.com\",\n  \"orderId\":\"25\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://tshirt.cloudhub.io/trackOrder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://tshirt.cloudhub.io/trackOrder",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n  \"email\": \"info@mulesoft.com\",\n  \"orderId\":\"25\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://tshirt.cloudhub.io/orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 500\"] = responseCode.code === 500;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://tshirt.cloudhub.io/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n                \"size\": \"M\",\n                \"email\": \"me@narendran.info\",\n                \"name\": \"Naren\",\n                \"address1\": \"1600 Amphitheatre Parkway\",\n                \"address2\": \"Google\",\n                \"city\": \"Mountain View\",\n                \"stateOrProvince\": \"CA\",\n                \"country\": \"US\",\n                \"postalCode\": \"94131\"\n              }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
