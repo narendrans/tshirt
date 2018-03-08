@@ -31,6 +31,6 @@ You should then see an output like below in the command line:
 ---
 ### REST proxy
 
-The modernized REST API is created using Anypoint Studio which can be import using the file `tshirt-service.zip`. A live demo can be found here [http://tshirt.cloudhub.io/](http://tshirt.cloudhub.io/). Click on the inventory to get the list of inventory. The other two links requires a POST.
+The modernized REST API is created using Anypoint Studio which can be import using the file `tshirt-service.zip`. A live demo can be found here [http://tshirt.cloudhub.io/inventory](http://tshirt.cloudhub.io/inventory). (Link may expire as the trail period for anypoint is 7 days)
 
 
